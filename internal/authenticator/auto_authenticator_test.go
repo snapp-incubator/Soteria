@@ -100,6 +100,7 @@ func (suite *AutoAuthenticatorTestSuite) SetupSuite() {
 			SubName:       "sub",
 			SigningMethod: "rsa256",
 		},
+		Logger: zap.NewNop(),
 	}
 }
 
@@ -132,6 +133,7 @@ func TestAutoAuthenticator_ValidateTopicBySender(t *testing.T) {
 		AllowedAccessTypes: []acl.AccessType{acl.Pub, acl.Sub},
 		Company:            "snapp",
 		TopicManager:       topics.NewTopicManager(cfg.Topics, hid, "snapp", cfg.IssEntityMap, cfg.IssPeerMap, zap.NewNop()),
+		Logger:             zap.NewNop(),
 	}
 
 	t.Run("testing valid driver cab event", func(t *testing.T) {

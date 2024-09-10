@@ -37,6 +37,10 @@ func Default() Config {
 			URL:     "http://validator-lb",
 			Timeout: 5 * time.Second,
 		},
+		BlackListUserLogging: BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
+		},
 	}
 }
 

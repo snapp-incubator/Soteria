@@ -43,6 +43,7 @@ type Payload struct {
 	Email  string `json:"email"`
 	Exp    int    `json:"exp"`
 	Locale string `json:"locale"`
+	Sid    string `json:"sid"`
 }
 
 // New creates a new Client with default attributes.
@@ -157,6 +158,10 @@ func (c *Client) Validate(parentCtx context.Context, headers http.Header, bearer
 
 	if locale, ok := userData["locale"].(string); ok {
 		payload.Locale = locale
+	}
+
+	if sid, ok := userData["sid"].(string); ok {
+		payload.Sid = sid
 	}
 
 	return payload, nil

@@ -61,7 +61,7 @@ func (a API) Authv1(c *fiber.Ctx) error {
 
 		if !errors.Is(err, jwt.ErrTokenExpired) {
 			a.Logger.
-				Error("auth request is not authorized",
+				Debug("auth request is not authorized",
 					zap.Error(err),
 					zap.String("token", request.Token),
 					zap.String("username", request.Username),
@@ -128,7 +128,7 @@ func (a API) Authv2(c *fiber.Ctx) error {
 
 		if !errors.Is(err, jwt.ErrTokenExpired) {
 			a.Logger.
-				Error("auth request is not authorized",
+				Debug("auth request is not authorized",
 					zap.Error(err),
 					zap.String("token", request.Token),
 					zap.String("username", request.Username),

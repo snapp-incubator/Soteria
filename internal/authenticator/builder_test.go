@@ -24,6 +24,10 @@ func TestBuilderWithoutAuthenticator(t *testing.T) {
 			URL:     "",
 			Timeout: 0,
 		},
+		BlackListUserLoggingConfig: config.BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
+		},
 	}
 
 	_, err := b.Authenticators()
@@ -61,6 +65,10 @@ func TestBuilderInvalidAuthenticator(t *testing.T) {
 			URL:     "",
 			Timeout: 0,
 		},
+		BlackListUserLoggingConfig: config.BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
+		},
 	}
 
 	_, err := b.Authenticators()
@@ -97,6 +105,10 @@ func TestBuilderInternalAuthenticator(t *testing.T) {
 		ValidatorConfig: config.Validator{
 			URL:     "",
 			Timeout: 0,
+		},
+		BlackListUserLoggingConfig: config.BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
 		},
 	}
 
@@ -136,6 +148,10 @@ func TestBuilderInternalAuthenticatorWithInvalidKey(t *testing.T) {
 		ValidatorConfig: config.Validator{
 			URL:     "",
 			Timeout: 0,
+		},
+		BlackListUserLoggingConfig: config.BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
 		},
 	}
 
@@ -191,6 +207,10 @@ func TestBuilderManualAuthenticatorWithoutKey(t *testing.T) {
 			URL:     "",
 			Timeout: 0,
 		},
+		BlackListUserLoggingConfig: config.BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
+		},
 	}
 
 	_, err := b.Authenticators()
@@ -203,6 +223,7 @@ func TestBuilderManualAuthenticator(t *testing.T) {
 
 	require := require.New(t)
 
+	// nolint: dupl
 	b := authenticator.Builder{
 		Tracer: noop.NewTracerProvider().Tracer(""),
 		Vendors: []config.Vendor{
@@ -265,6 +286,10 @@ func TestBuilderManualAuthenticator(t *testing.T) {
 		ValidatorConfig: config.Validator{
 			URL:     "",
 			Timeout: 0,
+		},
+		BlackListUserLoggingConfig: config.BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
 		},
 	}
 
@@ -338,6 +363,10 @@ func TestBuilderManualAuthenticatorInvalidMapping_1(t *testing.T) {
 		ValidatorConfig: config.Validator{
 			URL:     "",
 			Timeout: 0,
+		},
+		BlackListUserLoggingConfig: config.BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
 		},
 	}
 
@@ -413,6 +442,10 @@ func TestBuilderManualAuthenticatorInvalidMapping_2(t *testing.T) {
 			URL:     "",
 			Timeout: 0,
 		},
+		BlackListUserLoggingConfig: config.BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
+		},
 	}
 
 	_, err := b.Authenticators()
@@ -425,6 +458,7 @@ func TestBuilderManualAuthenticatorInvalidAccess(t *testing.T) {
 
 	require := require.New(t)
 
+	// nolint: dupl
 	b := authenticator.Builder{
 		Tracer: noop.NewTracerProvider().Tracer(""),
 		Vendors: []config.Vendor{
@@ -487,6 +521,10 @@ func TestBuilderManualAuthenticatorInvalidAccess(t *testing.T) {
 		ValidatorConfig: config.Validator{
 			URL:     "",
 			Timeout: 0,
+		},
+		BlackListUserLoggingConfig: config.BlackListUserLogging{
+			Iss:     0,
+			UserIDs: []int{},
 		},
 	}
 

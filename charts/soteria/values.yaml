@@ -50,6 +50,10 @@ config:
   tracer:
     enabled: false
 
+black_list_user_logging:
+  iss: 0
+  user_ids: []
+
 vendors:
   snapp:
     company: "snapp"

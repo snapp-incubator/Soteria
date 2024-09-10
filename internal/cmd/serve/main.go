@@ -23,10 +23,11 @@ type Serve struct {
 
 func (s Serve) main() {
 	auth, err := authenticator.Builder{
-		Vendors:         s.Cfg.Vendors,
-		Logger:          s.Logger,
-		ValidatorConfig: s.Cfg.Validator,
-		Tracer:          s.Tracer,
+		Vendors:                    s.Cfg.Vendors,
+		Logger:                     s.Logger,
+		ValidatorConfig:            s.Cfg.Validator,
+		Tracer:                     s.Tracer,
+		BlackListUserLoggingConfig: s.Cfg.BlackListUserLogging,
 	}.Authenticators()
 	if err != nil {
 		s.Logger.Fatal("authenticator building failed", zap.Error(err))

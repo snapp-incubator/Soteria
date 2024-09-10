@@ -6,6 +6,10 @@ http_port: 9999
 logger:
   level: debug
   stacktrace: true
+black_list_user_logging:
+  iss: 0
+  user_ids: []
+
 # Validator is the upstream backend service that can validate the tokens:
 validator:
   url: http://validator-lb
